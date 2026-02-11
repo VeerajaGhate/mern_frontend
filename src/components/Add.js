@@ -23,7 +23,7 @@ function Add() {
 
     useEffect(()=>{
       prefill()
-    },[id])
+    },[id,prefill])
 
 
 
