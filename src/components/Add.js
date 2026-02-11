@@ -8,7 +8,10 @@ function Add() {
     const {id} =useParams()
     const navigate=useNavigate()
 
-    async function prefill(){
+    
+
+    useEffect(()=>{
+      async function prefill(){
       if(id){
         let response= await fetch(`${process.env.REACT_APP_API_URL}/books/${id}`,{
             method:"GET",
@@ -20,10 +23,8 @@ function Add() {
         setPrice(result.book.price)
       }
     }
-
-    useEffect(()=>{
-      prefill()
-    },[id,prefill])
+    prefill()
+    },[id])
 
 
 
